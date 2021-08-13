@@ -1,0 +1,8 @@
+DB_scripts/*.csv
+.vscode/settings.json
+API/dateform.html
+API/app.py
+API/dateform.js
+API/__pycache__/db.cpython-36.pyc
+API/__pycache__/employee_queries.cpython-36.pyc
+API/__pycache__/user_queries.cpython-36.pyc

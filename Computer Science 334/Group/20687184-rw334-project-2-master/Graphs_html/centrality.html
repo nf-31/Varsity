@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% block title %} Centrality {% endblock %} {% block page_content %}
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Centrality</title>
+	  <script src="https://cdn.neo4jlabs.com/neovis.js/v1.5.0/neovis.js"></script>
+	  <style type="text/css">
+		#viz {
+			width: 100vw;
+			height: 100vh;
+		}
+	</style>
+</head>
+
+<body onload="draw()">
+	<label>Minimum Centrality: </label>
+	<input id="centrality" type="number" min="0" max="99" value="4"/>
+	<button onclick="set_centrality()">Redraw</button>
+	<div id="viz"></div>
+</body>
+
+<script type="text/javascript">
+	var config;
+	var viz;
+	var centrality = 4;
+
+	function draw() {
+		var centrality_string = centrality.toString()
+		var cypher = "MATCH p=(n:User)-[r:Contacted]-(m:User) WHERE n.centrality > "+centrality_string+" AND m.centrality > "+centrality_string+" RETURN p";
+		config = {
+			container_id: "viz",
+			server_url: "bolt://localhost:7687",
+			server_user: "neo4j",
+			server_password: "!QWErty123",
+			labels: {
+				"User": {
+					"caption": "email",
+					"size": "centrality",
+				}
+			},
+			relationships: {
+				"Contacted": {
+					"caption": "false",
+					"thickness": "0.05"
+				}
+			},
+			initial_cypher: cypher
+		};
+
+		viz = new NeoVis.default(config);
+		viz.render();
+	};
+
+	function set_centrality() {
+		temp = document.getElementById('centrality').value;
+		if (temp >= 0 && temp < 99) {
+			centrality = temp;
+			viz.clearNetwork();
+			draw();
+		}
+	};
+
+</script>
+
+{% endblock %}

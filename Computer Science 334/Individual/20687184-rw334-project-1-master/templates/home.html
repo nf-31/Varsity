@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="en">
+    
+    <head>
+
+        <title>GitScrape Homepage</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+    </head>
+
+    <body>
+        <header class="page-header header container-fluid">
+           <!-- Page content container-->
+            <div class="description">
+                <h1>Welcome to GitScrape!</h1>
+
+                <p>GitScrape is a simple web app that allows you to provide a search term (such as "machine learning") and obtain info on the corresponding top 10 repositories on GitHub.
+                     You have the option of obtaining the information via scraping or via the GitHub API.
+                      Using the API route, you have the option to return more than 10 results.
+                </p>
+
+                <a class="btn btn-outline-secondary btn-lg" href="/interface">Try Me!</a>
+
+            </div>
+        </header>
+
+    </body>
+
+</html>

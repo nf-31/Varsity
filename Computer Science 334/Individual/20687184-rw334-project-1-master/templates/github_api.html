@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+   <head>
+      <title>GitHub API Results</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/github_api.css') }}">
+
+   </head>
+   <body>
+     
+      <table class="table table-bordered table-striped">
+         <thead>
+            <tr>
+               <th scope="col">#</th>
+               <th scope="col">Repo Name</th>
+               <th scope="col">Description</th>
+               <th scope="col">#Stars</th>
+               <th scope="col">Language</th>
+               <th scope="col">License</th>
+               <th scope="col">Last Updated</th>
+               <th scope="col">Has Issues</th>
+            </tr>
+         </thead>
+         <tbody>
+               {% for results in result %} 
+               <tr>
+               <th scope="row">{{ loop.index }}</th>
+               {% for key, value in results.items() %}
+               <td> {{ value }} </td>
+               {% endfor %}
+               </tr>
+               {% endfor %}
+            
+         </tbody>
+    
+      </table>
+   </body>
+</html>

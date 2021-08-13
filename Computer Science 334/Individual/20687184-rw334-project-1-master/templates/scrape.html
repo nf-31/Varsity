@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+   <head>
+      <title>Scrape Results</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
+      crossorigin="anonymous">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/scrape.css') }}">
+
+   </head>
+   <body>
+     
+      <table class="table table-bordered table-striped">
+         <thead>
+            <tr>
+               <th scope="col">#</th>
+               <th scope="col">Repo Name</th>
+               <th scope="col">Description</th>
+               <th scope="col">Tags</th>
+               <th scope="col">#Stars</th>
+               <th scope="col">Language</th>
+               <th scope="col">License</th>
+               <th scope="col">Last Updated</th>
+               <th scope="col">#Issues</th>
+            </tr>
+         </thead>
+         <tbody>
+               {% for results in result %} 
+               <tr>
+               <th scope="row">{{ loop.index }}</th>
+               <td> {{ results['repo_name'] }} </td>
+               <td> {{ results['description']}} </td>
+               {% if results['tags'] != None %} 
+               <td> {{ results['tags']|join(', ') }} </td>
+               {% else %}
+               <td> {{ results['tags'] }} </td>
+               {%endif%}
+               <td> {{ results['num_stars'] }} </td>
+               <td> {{ results['language'] }} </td>
+               <td> {{ results['license'] }} </td>
+               <td> {{ results['last_updated'] }}</td>
+               <td> {{ results['num_issues'] }} </td>
+               </tr>
+               {% endfor %}
+            
+         </tbody>
+    
+      </table>
+   </body>
+   </html>

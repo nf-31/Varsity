@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% block title %} Path {% endblock %}
+
+{% block page_content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content=" width=device-width, initial-scale=1">
+    <title>Shortest Path</title>
+	<script src="https://cdn.neo4jlabs.com/neovis.js/v1.5.0/neovis.js"></script>
+	<style type="text/css">
+		#viz {
+			width: 100vw;
+			height: 100vh;
+		}
+	</style>
+
+</head>
+<body onload="draw()">
+	<div id="viz"></div>
+</body>
+
+<script type="text/javascript">
+	function draw() {
+		var centrality_string = path.toString()
+		var cypher = "MATCH path=(n)-[r:Contacted]->(m) RETURN path AS shortestPath,reduce(exchange_emails=0,r in relationships(path)|exchange_emails+r.exchange_emails) AS total ORDER BY total ASC LIMIT 200"
+
+		var config = {
+			container_id: "viz",
+			server_url: "bolt://localhost:11003",
+			server_user: "neo4j",
+			server_password: "!QWErty123",
+			labels: {
+				"User": {
+					"caption": "email",
+					"size": "centrality",
+				}
+			},
+			relationships: {
+				"Contacted": {
+					"caption": "false",
+					"thickness": "0.05"
+				}
+			},
+			initial_cypher: cypher
+		};
+
+		viz = new NeoVis.default(config);
+		viz.render();
+	}
+</script>
+
+{% endblock %}

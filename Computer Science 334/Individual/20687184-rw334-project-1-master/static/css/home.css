@@ -1,0 +1,36 @@
+body {
+    height: 100%;
+    background-color: #F3F3F3;
+
+}
+
+.description {
+    /*adjust text and button positioning*/
+    left: 50%;
+    position: absolute;
+    top: 45%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+}
+.description h1 {
+    color: #283747;
+}
+.description p {
+    color: #283747;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.description a {
+    /*button layout*/
+    border: 1px solid #932432;
+    background: #932432;
+    border-radius: 0;
+    color: #F3F3F3; 
+}
+
+.description a:hover {
+    border: 1px solid #fff;
+    background: #fff;
+    color: #000;
+}

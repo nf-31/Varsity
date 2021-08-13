@@ -1,0 +1,9 @@
+thead {
+    background-color: #283747;
+    color: #F3F3F3;
+} 
+ 
+ .table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #F3F3F3;
+ }

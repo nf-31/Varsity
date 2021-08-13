@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% block title %} Employee results {% endblock %} {% block page_content %}
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    {% if result|length > 0 %}
+    <table class="table table-bordered table-striped">
+
+       <thead>
+          <tr>
+             <th scope="col">#</th>
+             <th scope="col">First name</th>
+             <th scope="col">Last name</th>
+             <th scope="col">Email</th>
+             <th scope="col">No. of emails sent</th>
+             <th scope="col">Most contacted</th>
+          </tr>
+       </thead>
+       <tbody>
+
+        {% for results in result %}
+        <tr>
+        <th scope="row">{{ loop.index }}</th>
+        <td> {{ results['firstName'] }} </td>
+        <td> {{ results['lastName']}} </td>
+        <td> {{ results['email'] }} </td>
+        <td> {{ results['numEmailsSent']}} </td>
+        <td>
+            <ul>
+                {%for contacted in results['mostContacted']%}
+              <li>{{ contacted }} </li>
+              {%endfor%}
+            </ul>
+        </td>
+        </tr>
+        {% endfor %}
+
+       </tbody>
+
+    </table>
+    {%else%}
+        {% print("No employee found!") %}
+    {%endif%}
+ </body>
+{% endblock %}

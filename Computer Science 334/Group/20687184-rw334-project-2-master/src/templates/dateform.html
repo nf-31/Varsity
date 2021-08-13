@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block title %} Date form {% endblock %} {% block page_content %}
+
+<html lang = en>
+
+
+<head>
+    <title>Simple Date Test Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset = "utf-8">
+    <script>
+    function validateDates() {
+    var start = document.getElementById("firstdate").value;
+    var end = document.getElementById("lastdate").value;
+
+    if(Date.parse(end) <= Date.parse(start))
+    {
+        alert("Start date cannot be greater than end date!");
+        return false;
+    }
+}
+    </script>
+</head>
+
+<body>
+
+    <form  onsubmit = "return validateDates()" method="post">
+        <p>If no dates entered, i.e. default used, then total number of emails sent is returned. To obtain number of emails sent within a period, specify using the provided inputs </p>
+        <label for="startdate">Choose start date:
+            <input type="date" name = "firstdate" id = "firstdate"   required pattern="\d{4}-\d{2}-\d{2}" value="1979-12-31" min="1979-12-31" max="2002-09-22">
+            <span class="validity"></span>
+        </label>
+        <p>
+            <label for="enddate">Choose end date:
+                <input type="date" name = "lastdate" id = "lastdate" required pattern="\d{4}-\d{2}-\d{2}" value="2002-09-22" min="1979-12-31" max="2002-09-22">
+                <span class="validity"></span>
+            </label>
+        </p>
+
+        <p>
+            <button>Submit</button>
+        </p>
+    </form>
+</body>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base.html" %} {% block title %} Home Page {% endblock %}
+
+{% block page_content %}
+<head>
+  <meta name="viewport" content=" width=device-width, initial-scale=1">
+  <style>
+      /* Style all input fields */
+
+      input {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          margin-top: 1vh;
+          margin-bottom: 1vh;
+      }
+      /* Style the submit button */
+
+      input[type=submit] {
+          background-color: #04AA6D;
+          color: white;
+      }
+      /* Style the container for inputs */
+
+      .container {
+          /*background-color: #f1f1f1;*/
+          /* padding: 2vh; */
+          /*- margin-top: 20vh;*/
+      }
+      /* The message box is shown when the user clicks on the password field */
+
+      #message {
+          display: none;
+          /*background: #f1f1f1;*/
+          color: #000;
+          position: relative;
+          padding: 20px;
+          margin-top: 10px;
+      }
+
+      #message p {
+          padding: 10px 35px;
+          font-size: 18px;
+      }
+      /* Add a green text color and a checkmark when the requirements are right */
+
+      .valid {
+          color: green;
+      }
+
+      .valid:before {
+          position: relative;
+          left: -35px;
+          content: "✔";
+      }
+      /* Add a red text color and an "x" when the requirements are wrong */
+
+      .invalid {
+          color: red;
+      }
+
+      .invalid:before {
+          position: relative;
+          left: -35px;
+          content: "✖";
+      }
+  </style>
+
+</head>
+<body>
+    <h3>Login</h3>
+    <div class="container">
+      <form action="/user/{{name}}">
+          <label for="url">Username</label>
+          <input type="text" name="" value="" required>
+          <br>
+          <label for="code">Password</label>
+          <input type="password" name="" required>
+          <br>
+          <input type="submit" name="">
+      </form>
+    </div>
+
+</body>
+{% endblock %}

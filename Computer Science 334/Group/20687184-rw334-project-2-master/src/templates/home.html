@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block title %} Home Page {% endblock %} {% block page_content %}
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .btn {margin-bottom: 2vh;}
+  </style>
+</head>
+<div class="page-header">
+    <h1>Enron Dataset</h1>
+    <form method="post" action="{{ url_for('home') }}">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary but" type="submit" name="nav_button" value="query">Employee Query
+                </button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary but" type="submit" name="nav_button" value="social">Social Network
+                    Graph
+                </button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary but" type="submit" name="nav_button" value="centrality">Centrality Graph
+                </button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary but" type="submit" name="nav_button" value="propagation">Label
+                    Propagation Graph
+                </button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary but" type="submit" name="nav_button" value="shortestPath">Shortest Path
+                </button>
+            </div>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

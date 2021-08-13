@@ -1,0 +1,91 @@
+body {
+    height: 100%;
+    background-color: #F3F3F3;
+}
+
+.prompt_1 {
+    /*adjust text and button positioning*/
+    left: 50%;
+    position: absolute;
+    top: 20%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+}
+
+.prompt_1 h1 {
+    color: #283747;
+}
+
+.prompt_2 h2 {
+    color: #283747;
+}
+
+#search_input {
+    left: 50%;
+    position: absolute;
+    top: 30%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+}
+
+.prompt_2 {
+    /*adjust text and button positioning*/
+    left: 50%;
+    position: absolute;
+    top: 40%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+}
+
+#number_input {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+}
+
+input[type="text"]
+{
+    width: 500px;
+
+}
+
+input[type="number"]
+{
+    width: 500px;
+
+}
+
+
+input[name="button_1"] {
+    /*positioning*/
+    left: 45%;
+    position: absolute;
+    top: 65%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+
+    /*formatting*/
+    border: 1px solid #932432;
+    background: #932432;
+    border-radius: 0;
+    color: #F3F3F3; 
+
+}
+
+input[name="button_2"] {
+    /*positioning*/
+    left: 55%;
+    position: absolute;
+    top: 65%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+
+    /*formatting*/
+    border: 1px solid #932432;
+    background: #932432;
+    border-radius: 0;
+    color: #F3F3F3; 
+
+}
